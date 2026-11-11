@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edwige Danon | Programmation, événementiel et digital</title>
+<meta name="description" content="Edwige Danon, étudiante en sociologie à Abomey-Calavi (Bénin), passionnée de programmation : wedding planning, marketing digital, communication et création d’une agence événementielle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+
+<style>
+:root{
+  --bg:#000; --surface:#000; --deep-blue:#000; --line:#2A2A2A;
+  --text:#F5F5F5; --muted:#B8B8B8;
+  --blue:#3B82F6; --orange:#FF8A1F; --yellow:#f0bb0e; --gold:#D4AF37;
+  --serif:"Fraunces",Georgia,serif; --sans:"Instrument Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px;color-scheme:dark;background:#000}
+body{font-family:var(--sans);font-weight:500;color:var(--text);background:#000;line-height:1.65;font-size:1.05rem}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;font-weight:700}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+section{padding:5rem 0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1rem}
+.lead{max-width:62ch;color:var(--muted)}
+
+#parcours h2{color:var(--orange)}
+#competences h2{color:var(--blue)}
+#agence h2{color:var(--yellow)}
+#contact h2{color:var(--gold)}
+
+header{position:sticky;top:0;z-index:20;background:#000;border-bottom:2px solid var(--gold)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.2rem;text-decoration:none}
+.logo span{color:var(--gold)}
+nav ul{display:flex;gap:1.5rem;list-style:none}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--yellow)}
+.burger{display:none;background:none;border:1px solid var(--gold);border-radius:8px;padding:.45rem .7rem;font:inherit;color:var(--gold);cursor:pointer}
+
+.hero{padding:5rem 0 4rem;background:#000}
+.hero .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);letter-spacing:-.02em;color:var(--gold)}
+.hero p.sub{margin:1.25rem 0 2rem;max-width:52ch;font-size:1.12rem;color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;border:2px solid var(--orange);cursor:pointer;font:inherit;font-weight:600}
+.btn.fill{background:var(--orange);color:#1A1000}
+.btn.fill:hover{background:var(--yellow);border-color:var(--yellow)}
+.btn.line{color:var(--gold);border-color:var(--gold)}
+.btn.line:hover{background:var(--gold);color:#1A1000}
+img.portrait{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block;border-radius:200px 200px 24px 24px;border:6px solid var(--gold);background:var(--surface)}
+
+.timeline{margin-top:2rem;border-left:3px solid var(--orange);padding-left:1.5rem;display:grid;gap:1.75rem;max-width:720px}
+.timeline h3{font-size:1.2rem;margin-top:.4rem}
+.timeline p{color:var(--muted)}
+.timeline time{display:inline-block;font-weight:600;font-size:.85rem;padding:.15rem .75rem;border-radius:999px;color:#111}
+.timeline > div:nth-child(1) time{background:var(--blue)}
+.timeline > div:nth-child(2) time{background:var(--orange)}
+.timeline > div:nth-child(3) time{background:var(--yellow)}
+.timeline > div:nth-child(4) time{background:var(--gold)}
+
+.skills{background:#000}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;margin-top:2rem}
+.card{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:14px;padding:1.5rem}
+.card:nth-child(1){border-top-color:var(--blue)}
+.card:nth-child(2){border-top-color:var(--orange)}
+.card:nth-child(3){border-top-color:var(--yellow)}
+.card:nth-child(4){border-top-color:var(--gold)}
+.card h3{font-size:1.2rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.98rem}
+
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 1.25rem}
+.tab{padding:.55rem 1.1rem;border-radius:999px;border:1px solid var(--gold);background:transparent;color:var(--text);font:inherit;font-weight:500;cursor:pointer}
+.tab:hover{border-color:var(--yellow)}
+.tab[aria-selected="true"]{background:var(--yellow);color:#1A1000;border-color:var(--yellow)}
+.panel ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.75rem 2rem}
+.panel li{padding:.7rem 0 .7rem 1.5rem;border-bottom:1px solid var(--line);position:relative}
+.panel li::before{content:"";position:absolute;left:0;top:1.2rem;width:9px;height:9px;border-radius:50%;background:var(--orange)}
+.panel li:nth-child(4n+2)::before{background:var(--blue)}
+.panel li:nth-child(4n+3)::before{background:var(--yellow)}
+.panel li:nth-child(4n)::before{background:var(--gold)}
+.panel[hidden]{display:none}
+
+.invite{background:linear-gradient(120deg,var(--orange),var(--gold));color:#1A1000;text-align:center}
+.invite h2{color:#1A1000}
+.invite p{max-width:60ch;margin:0 auto 2rem}
+.invite .btn.fill{background:#000;border-color:#000;color:var(--yellow)}
+.invite .btn.fill:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.info p{margin-bottom:.9rem}
+.info strong{display:block;font-size:.9rem;color:var(--blue)}
+.info a:hover{color:var(--yellow)}
+form{display:grid;gap:1rem}
+label{font-weight:500;font-size:.95rem}
+input,select,textarea{width:100%;margin-top:.3rem;padding:.75rem .9rem;border:1px solid var(--line);border-radius:10px;font:inherit;background:#0c0c0c;color:var(--text)}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+textarea{min-height:130px;resize:vertical}
+.note{font-size:.85rem;color:var(--muted)}
+
+footer{border-top:2px solid var(--gold);padding:1.5rem 0;text-align:center;color:var(--muted);font-size:.9rem;background:#000}
+
+@media (max-width:820px){
+  .hero .wrap,.contact .wrap{grid-template-columns:1fr}
+  img.portrait{max-width:260px;margin:0 auto}
+  .burger{display:block}
+  nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:#000;flex-direction:column;gap:0;border-bottom:2px solid var(--gold)}
+  nav ul.open{display:flex}
+  nav li a{display:block;padding:1rem 1.25rem}
+  section{padding:3.5rem 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#accueil">Edwige H. Marcelline <span>Danon</span></a>
+    <nav aria-label="Navigation principale">
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul id="menu">
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#agence">Mon agence</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="accueil">
+  <div class="wrap">
+    <img src="edoo.png" alt="Portrait d’Edwige Danon" class="portrait">
+    <div>
+      <h1>Bienvenue dans mon monde</h1>
+      <p class="sub">Je suis Edwige H. Marcelline Danon, j’ai 23 ans, je suis étudiante en sociologie à Abomey-Calavi et passionnée de programmation. Je développe aussi la gestion de projet, le marketing digital et la communication, avec un objectif : mettre toutes ces compétences au service de vos projets.</p>
+      <div class="btns">
+        <a class="btn fill" href="#contact">Confier un projet</a>
+        <a class="btn line" href="#agence">Découvrir mon agence</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="wrap">
+    <h2>Mon parcours</h2>
+    <p class="lead">La sociologie m’a appris à observer les groupes, leurs attentes et leurs habitudes. Tout ce que je construis part de là : savoir à qui l’on parle avant de décider quoi créer.</p>
+    <div class="timeline">
+      <div>
+        <time>Études</time>
+        <h3>Sociologie</h3>
+        <p>Analyse des comportements, enquêtes de terrain et lecture des dynamiques sociales, un socle précieux pour la communication et l’événementiel.</p>
+      </div>
+      <div>
+        <time>Passion</time>
+        <h3>Programmation</h3>
+        <p>Je code en autodidacte avec HTML, CSS et JavaScript, et je transforme mes idées en outils et en sites qui fonctionnent.</p>
+      </div>
+      <div>
+        <time>Terrain</time>
+        <h3>Wedding planning, marketing et communication</h3>
+        <p>Organisation de cérémonies, création de contenus et gestion de la présence en ligne pour valoriser des projets et des marques.</p>
+      </div>
+      <div>
+        <time>En cours</time>
+        <h3>Création de mon agence événementielle</h3>
+        <p>Un projet qui réunit toutes mes compétences au service des organisateurs d’événements au Bénin et dans le monde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="competences">
+  <div class="wrap">
+    <h2>Ce que je peux faire pour vous</h2>
+    <p class="lead">Quatre savoir-faire complémentaires, que je peux proposer séparément ou combiner.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Gestion de projet et wedding planning</h3>
+        <p>Budget, calendrier, prestataires, coordination du jour J : votre cérémonie suit un plan clair, sans mauvaise surprise.</p>
+      </article>
+      <article class="card">
+        <h3>Marketing digital</h3>
+        <p>Stratégie sur les réseaux sociaux, campagnes ciblées et suivi des résultats pour toucher la bonne audience.</p>
+      </article>
+      <article class="card">
+        <h3>Communication</h3>
+        <p>Identité de message, textes, visuels et relations avec le public pour que votre projet soit compris et retenu.</p>
+      </article>
+      <article class="card">
+        <h3>Développement web</h3>
+        <p>Pages de présentation, formulaires d’inscription et petits outils sur mesure pour vos événements et activités.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="agence">
+  <div class="wrap">
+    <h2>Mon projet : une agence événementielle</h2>
+    <p class="lead">Une agence qui fournit des hôtesses et tout ce qui fait la réussite d’un événement, avec un seul interlocuteur du premier appel au dernier invité.</p>
+
+    <div class="tabs" role="tablist" aria-label="Catégories de services">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p1" id="t1">Hôtesses et personnel</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p2" id="t2">Organisation</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3">Animation et technique</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p4" id="t4">Communication</button>
+    </div>
+
+    <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1">
+      <ul>
+        <li>Hôtesses d’accueil pour mariages, séminaires et conférences</li>
+        <li>Hôtesses événementielles pour salons, foires et expositions</li>
+        <li>Hôtes et hôtesses de protocole et d’orientation</li>
+        <li>Gestion des listes d’invités, badges et contrôle d’accès</li>
+        <li>Hôtesses promotionnelles et animatrices de stand</li>
+        <li>Interprètes et accompagnateurs d’invités de marque</li>
+        <li>Personnel de service et voituriers</li>
+        <li>Agents de sécurité pour les événements</li>
+      </ul>
+    </div>
+    <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+      <ul>
+        <li>Wedding planning complet ou coordination du jour J</li>
+        <li>Anniversaires, baptêmes, fiançailles et cérémonies familiales</li>
+        <li>Événements d’entreprise, lancements et cocktails</li>
+        <li>Recherche et gestion des prestataires (salle, traiteur, décor)</li>
+        <li>Décoration et mise en scène de l’espace</li>
+        <li>Location de mobilier, tentes et matériel</li>
+        <li>Plan de salle et planning minute par minute</li>
+        <li>Transport et logistique des invités</li>
+      </ul>
+    </div>
+    <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+      <ul>
+        <li>Maîtres de cérémonie et animateurs</li>
+        <li>DJ, orchestre et sonorisation</li>
+        <li>Éclairage, scène et écrans</li>
+        <li>Photographes et vidéastes</li>
+        <li>Danseurs, troupes et artistes</li>
+        <li>Services de traiteur et pâtisserie</li>
+        <li>Espaces enfants et animations dédiées</li>
+        <li>Régie technique et coordination sur site</li>
+      </ul>
+    </div>
+    <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
+      <ul>
+        <li>Invitations papier et numériques</li>
+        <li>Page web d’événement avec confirmation de présence</li>
+        <li>Promotion sur les réseaux sociaux</li>
+        <li>Distribution de flyers et opérations de street marketing</li>
+        <li>Couverture photo et vidéo pour vos publications</li>
+        <li>Bilan et compte rendu après l’événement</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="invite" id="invitation">
+  <div class="wrap">
+    <h2>Votre projet mérite une vraie main d’œuvre passionnée</h2>
+    <p>Mariage à planifier, campagne à lancer, site à créer ou événement à encadrer : je vous invite à me confier vos projets, petits ou grands. Quel que soit votre secteur, venez en parler, nous trouverons ensemble la meilleure façon de les réaliser.</p>
+    <a class="btn fill" href="#contact">Parlons de votre projet</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="info">
+      <h2>Contact</h2>
+      <p class="lead" style="margin-bottom:1.5rem">Décrivez votre besoin, je vous réponds rapidement.</p>
+      <p><strong>Localisation</strong>Abomey-Calavi, Bénin</p>
+      <p><strong>Téléphone / WhatsApp</strong><a href="https://wa.me/2290152919202" target="_blank" rel="noopener">+229 01 52 91 92 02</a></p>
+      <p><strong>E-mail</strong><a href="mailto:edwigedanon84@gmail.com">edwigedanon84@gmail.com</a></p>
+      <p><strong>Facebook</strong><a href="https://www.facebook.com/search/top?q=Edwige%20Dn" target="_blank" rel="noopener">Edwige Dn</a></p>
+      <p><strong>Instagram</strong><a href="https://www.instagram.com/danonhedwigemarcelline" target="_blank" rel="noopener">@danonhedwigemarcelline</a></p>
+    </div>
+    <form id="form">
+      <label>Votre nom
+        <input type="text" id="nom" required autocomplete="name">
+      </label>
+      <label>Type de projet
+        <select id="type">
+          <option>Wedding planning</option>
+          <option>Hôtesses pour un événement</option>
+          <option>Marketing digital</option>
+          <option>Communication</option>
+          <option>Site web</option>
+          <option>Autre</option>
+        </select>
+      </label>
+      <label>Votre message
+        <textarea id="msg" required></textarea>
+      </label>
+      <button class="btn fill" type="submit">Envoyer sur WhatsApp</button>
+      <p class="note">Le message s’ouvre dans WhatsApp, prêt à être envoyé.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Edwige H. Marcelline Danon. Abomey-Calavi, Bénin.</div>
+</footer>
+
+<script>
+// Menu mobile
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+menu.addEventListener('click', e => {
+  if (e.target.tagName === 'A') { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
+});
+
+// Onglets des services
+const tabs = document.querySelectorAll('.tab');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => {
+      const active = t === tab;
+      t.setAttribute('aria-selected', active);
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !active;
+    });
+  });
+});
+
+// Formulaire vers WhatsApp (numéro au format international, sans + ni espaces)
+const NUMERO = '2290152919202';
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+  const texte = 'Bonjour Edwige, je m’appelle ' + document.getElementById('nom').value +
+    '. Projet : ' + document.getElementById('type').value +
+    '. ' + document.getElementById('msg').value;
+  window.open('https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(texte), '_blank');
+});
+
+// Année du pied de page
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
